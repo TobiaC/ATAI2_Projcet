@@ -1,0 +1,16 @@
+## translate pddl to lp
+plasp translate domain.pddl > domain.pddl.lp
+
+## execute .lp file with eclingo with horizon n
+## and encoding sequential - horizon . uurev . eclingo
+## same for sequential - horizon . uurev . general . eclingo
+eclingo -c horizon =n domain.pddl.lp sequential-horizon.uurev.eclingo
+
+## translate pddl to qasp with horizon n
+./ pddl -to -qasp-uurev.py domain.pddl n > domain.pddl.qasp
+
+## run qasp . jar and print a model and filter to chosen and plan
+java -jar qasp .jar -m -f chosen , plan domain.pddl.qasp
+
+## run qasp . jar and print all models and filter to chosen and plan
+java -jar qasp .jar -n -1 -m -f chosen , plan domain.pddl.qasp
