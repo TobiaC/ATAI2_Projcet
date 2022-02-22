@@ -1,0 +1,10 @@
+HOW TO PROPERLY INSTALL PLASP
+
+git clone https://github.com/potassco/plasp.git
+cd plasp
+git submodule update --init --recursive
+mkdir -p build/release
+cd build/release
+cmake ../.. -DCMAKE_BUILD_TYPE=Release
+make
+
