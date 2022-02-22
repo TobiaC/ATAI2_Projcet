@@ -4,7 +4,7 @@ plasp translate domain.pddl > domain.pddl.lp
 ## execute .lp file with eclingo with horizon n
 ## and encoding sequential - horizon . uurev . eclingo
 ## same for sequential - horizon . uurev . general . eclingo
-eclingo -c horizon =n domain.pddl.lp sequential-horizon.uurev.eclingo
+eclingo -c horizon=n domain.pddl.lp sequential-horizon.uurev.eclingo
 
 ## translate pddl to qasp with horizon n
 ./ pddl -to -qasp-uurev.py domain.pddl n > domain.pddl.qasp
