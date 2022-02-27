@@ -22,7 +22,7 @@ generate-nseq-ordered.py creates the example domains I have shown you:
 
 $ ./generate-nseq-ordered.py 2
 (define (domain rev-2-0 )
-  (:requirements :strips)
+  (:requirements :strips)clieno
   (:predicates (f0) (f1) )
 
   (:action del-all
