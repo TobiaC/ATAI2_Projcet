@@ -1,0 +1,47 @@
+fluents: 
+	box_at_start.
+	robot_at_start.
+	robot_at_goal.
+	robot_charged.
+	robot_carries_box.
+
+actions:
+	go_to_start.
+	pick_box.
+	go_to_goal.
+	drop_box.
+
+always:	
+	executable go_to_start if robot_charged.
+	caused robot_at_start after go_to_start.
+	caused -robot_at_goal after go_to_start.
+	
+	executable pick_box if robot_at_start.
+	executable pick_box if robot_charded.
+	executable pick_box if box_at_start.
+	caused robot_carries_box after pick_box.
+
+	executable go_to_goal if robot_charged.
+	executable go_to_goal if box_at_start.
+	executable go_to_goal if robot_carries_box.
+	caused -box_at_start after go_to_goal.
+	caused robot_at_goal after go_to_goal.
+	caused -robot_at_start after go_to_goal.
+
+	executable drop_box if -box_at_start.
+	executable drop_box if -robot_at_start.
+	executable drop_box if robot_at_goal.
+	executable drop_box if robot_charged.
+	executable drop_box if robot_carries_box .
+	caused -robot_carries_box after drop_box.
+	caused -robot_charged after drop_box.	
+
+initially: 
+	total box_at_start.
+	robot_at_start.
+	-robot_at_goal.
+	total robot_charged.
+	total robot_carries_box.
+
+
+goal: -robot_carries_box? (4)
