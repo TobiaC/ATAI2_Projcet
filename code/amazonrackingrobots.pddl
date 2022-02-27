@@ -17,7 +17,7 @@
 
 
     ; go to the recharging station
-    (:action go2charge
+    (:action go_to_charge
         :effect (and 
             (robot_charged)
         )
@@ -89,7 +89,7 @@
     )
     
 
-    ; open the box for inspection
+    ;open the box for inspection
     (:action openbox
         :precondition (and 
             (robot_charged)
